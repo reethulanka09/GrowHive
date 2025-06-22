@@ -20,10 +20,10 @@ import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 
 // IMPORTANT: Ensure this API_BASE_URL matches your backend's base URL
-const API_BASE_URL = 'http://192.168.10.149:5000/api';
+const API_BASE_URL = 'http://192.168.1.3:5000/api';
 // Define the base URL for serving static files (images)
 // This is your backend's base URL WITHOUT the '/api' suffix
-const STATIC_FILES_BASE_URL = 'http://10.16.59.193:5000';
+const STATIC_FILES_BASE_URL = 'http://192.168.1.3:5000';
 
 const MAX_SKILLS_TO_SHOW = 4;
 

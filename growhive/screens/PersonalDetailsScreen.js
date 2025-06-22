@@ -29,7 +29,7 @@ const COLORS = {
   muted: '#6b7280',
   shadow: '#e0e7ef',
 };
-const API_BASE_URL = 'http://192.168.10.149:5000/api/auth';
+const API_BASE_URL = 'http://192.168.1.3:5000/api/auth';
 export default function PersonalDetailsScreen() {
   const navigation = useNavigation();
   const route = useRoute();

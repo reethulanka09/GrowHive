@@ -58,7 +58,10 @@ const HackathonsStackScreen = ({ navigation }) => {
   useEffect(() => {
     const getUserId = async () => {
       try {
-        const id = await AsyncStorage.getItem('userId'); // Assuming 'userId' is the key
+        // const id = await AsyncStorage.getItem('userId'); // Assuming 'userId' is the key
+        const id = 234234;
+        console.log(id);
+        // console.log("venuuu");
         if (id) {
           setCreatorId(id);
           console.log('HackathonsStackScreen: Fetched creatorId from AsyncStorage:', id);
@@ -349,7 +352,7 @@ const HackathonsStackScreen = ({ navigation }) => {
 
         <View style={styles.someContainer}>
           <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1594904128030-9b63486a2468?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
+            source={{ uri: 'https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
             style={{ width: '100%', height: 200, marginTop: 10, borderRadius: 10 }}
             resizeMode="cover"
           />
@@ -359,6 +362,7 @@ const HackathonsStackScreen = ({ navigation }) => {
           <Text style={styles.sectionHeader}>My Hackathons</Text>
           {loading || !creatorId ? ( // Show loader if still loading or creatorId not available
             <ActivityIndicator size="large" color={COLORS.logoBlue} />
+
           ) : (
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalScrollContent}>
               {hackathons.filter(h => {
