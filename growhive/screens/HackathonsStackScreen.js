@@ -60,7 +60,8 @@ const HackathonsStackScreen = ({ navigation }) => {
       try {
         // const id = await AsyncStorage.getItem('userId'); // Assuming 'userId' is the key
         const id = 234234;
-        console.log(id);
+        console.log("venu");
+               console.log(id);
         // console.log("venuuu");
         if (id) {
           setCreatorId(id);
