@@ -62,7 +62,7 @@ const HackathonsStackScreen = ({ navigation }) => {
         const id = 234234;
         console.log("venu");
                console.log(id);
-        // console.log("venuuu");
+        console.log("venuuu");
         if (id) {
           setCreatorId(id);
           console.log('HackathonsStackScreen: Fetched creatorId from AsyncStorage:', id);
