@@ -90,7 +90,7 @@ const COLORS = {
   redDanger: '#dc2626',
 };
 
-const API_BASE_URL = 'http://192.168.1.3:5000/api';
+const API_BASE_URL = 'http://192.168.1.2:5000/api';
 
 const SettingsScreen = () => {
   const navigation = useNavigation();

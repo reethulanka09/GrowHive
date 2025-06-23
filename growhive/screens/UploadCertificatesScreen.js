@@ -21,7 +21,7 @@ import { useFonts, Poppins_700Bold, Poppins_600SemiBold, Poppins_400Regular } fr
 import axios from 'axios';
 
 // IMPORTANT: Ensure NO SPACE AFTER http:// AND use your CURRENT LOCAL IP
-const API_BASE_URL = 'http://192.168.1.3:5000'; // Base URL for the backend (no /api/auth here)
+const API_BASE_URL = 'http://192.168.1.2:5000'; // Base URL for the backend (no /api/auth here)
 // The upload endpoint will be API_BASE_URL/api/upload/certificates
 
 export default function UploadCertificatesScreen() {

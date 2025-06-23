@@ -39,7 +39,7 @@ const DOMAIN_OPTIONS = [
   'UI/UX Design',
   'Cloud Computing',
 ];
-const API_BASE_URL = 'http://192.168.1.3:5000/api/auth'; // IMPORTANT: Replace YOUR_LOCAL_IP
+const API_BASE_URL = 'http://192.168.1.2:5000/api/auth'; // IMPORTANT: Replace YOUR_LOCAL_IP
 
 export default function ContinuedSignupScreen() {
   const navigation = useNavigation();
