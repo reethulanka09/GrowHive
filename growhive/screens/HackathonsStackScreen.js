@@ -58,20 +58,34 @@ const HackathonsStackScreen = ({ navigation }) => {
   useEffect(() => {
     const getUserId = async () => {
       try {
-        // const id = await AsyncStorage.getItem('userId'); // Assuming 'userId' is the key
-        const id = 234234;
-        console.log("venu");
-               console.log(id);
-        console.log("venuuu");
+        // Debug: log all AsyncStorage contents
+        const allKeys = await AsyncStorage.getAllKeys();
+        const allItems = await AsyncStorage.multiGet(allKeys);
+        console.log('AsyncStorage contents:', allItems);
+
+        const id = await AsyncStorage.getItem('userId');
         if (id) {
-          setCreatorId(id);
+          setCreatorId(id.toString());
           console.log('HackathonsStackScreen: Fetched creatorId from AsyncStorage:', id);
         } else {
           console.warn('HackathonsStackScreen: User ID not found in AsyncStorage. My Hackathons filter may not work.');
-          // Optionally, you might want to redirect to login or show a message
+          Alert.alert(
+            'User Not Found',
+            'Could not find your user ID. Please log in again.',
+            [
+              {
+                text: 'OK',
+                onPress: () => {
+                  // Optionally, navigate to login screen
+                  // navigation.navigate('Login');
+                },
+              },
+            ]
+          );
         }
       } catch (error) {
         console.error('HackathonsStackScreen: Error fetching user ID from AsyncStorage:', error);
+        Alert.alert('Error', 'Failed to load user information. Please restart the app.');
       }
     };
     getUserId();
@@ -391,7 +405,7 @@ const HackathonsStackScreen = ({ navigation }) => {
 
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionHeader}>Other Hackathons</Text>
-          {loading || !creatorId ? ( // Show loader if still loading or creatorId not available
+          {loading || !creatorId ? (
             <ActivityIndicator size="large" color={COLORS.logoBlue} />
           ) : (
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalScrollContent}>
