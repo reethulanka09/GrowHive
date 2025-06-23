@@ -21,7 +21,7 @@ import axios from 'axios';
 import { COLORS } from '../screens/constants'; // Adjust this path if 'constants.js' is elsewhere
 
 // IMPORTANT: Ensure NO SPACE AFTER http:// AND use your CURRENT LOCAL IP
-const API_BASE_URL = 'http://192.168.10.149:5000/api/auth'; // <--- VERIFY THIS IP AND NO SPACE
+const API_BASE_URL = 'http://192.168.1.2:5000/api/auth'; // <--- VERIFY THIS IP AND NO SPACE
 
 const PROFICIENCY_OPTIONS = [
   'Beginner',

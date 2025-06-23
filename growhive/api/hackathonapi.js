@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const BASE_URL = 'http://192.168.10.149:5000/api'; // <--- Make sure it's exactly this
+const BASE_URL = 'http://192.168.1.2:5000/api'; // <--- Make sure it's exactly this
 
 const hackathonApi = axios.create({
     baseURL: BASE_URL,

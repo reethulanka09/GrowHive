@@ -28,7 +28,7 @@ import * as SecureStore from 'expo-secure-store';
 import { COLORS } from '../screens/constants';
 
 const { width, height } = Dimensions.get('window');
-const API_BASE_URL = 'http://192.168.10.149:5000/api/auth';
+const API_BASE_URL = 'http://192.168.1.2:5000/api/auth';
 
 export default function LoginScreen({ navigation }) {
   const [passwordVisible, setPasswordVisible] = useState(false);

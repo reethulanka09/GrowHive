@@ -58,16 +58,35 @@ const HackathonsStackScreen = ({ navigation }) => {
   useEffect(() => {
     const getUserId = async () => {
       try {
-        const id = await AsyncStorage.getItem('userId'); // Assuming 'userId' is the key
+        // Debug: log all AsyncStorage contents
+        const allKeys = await AsyncStorage.getAllKeys();
+        const allItems = await AsyncStorage.multiGet(allKeys);
+        console.log('AsyncStorage contents:', allItems);
+
+        // const id = await AsyncStorage.getItem('userId');
+        const id = 12312;
         if (id) {
-          setCreatorId(id);
+          setCreatorId(id.toString());
           console.log('HackathonsStackScreen: Fetched creatorId from AsyncStorage:', id);
         } else {
           console.warn('HackathonsStackScreen: User ID not found in AsyncStorage. My Hackathons filter may not work.');
-          // Optionally, you might want to redirect to login or show a message
+          Alert.alert(
+            'User Not Found',
+            'Could not find your user ID. Please log in again.',
+            [
+              {
+                text: 'OK',
+                onPress: () => {
+                  // Optionally, navigate to login screen
+                  // navigation.navigate('Login');
+                },
+              },
+            ]
+          );
         }
       } catch (error) {
         console.error('HackathonsStackScreen: Error fetching user ID from AsyncStorage:', error);
+        Alert.alert('Error', 'Failed to load user information. Please restart the app.');
       }
     };
     getUserId();
@@ -349,7 +368,7 @@ const HackathonsStackScreen = ({ navigation }) => {
 
         <View style={styles.someContainer}>
           <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1594904128030-9b63486a2468?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
+            source={{ uri: 'https://images.unsplash.com/photo-1669023414162-5bb06bbff0ec?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
             style={{ width: '100%', height: 200, marginTop: 10, borderRadius: 10 }}
             resizeMode="cover"
           />
@@ -359,6 +378,7 @@ const HackathonsStackScreen = ({ navigation }) => {
           <Text style={styles.sectionHeader}>My Hackathons</Text>
           {loading || !creatorId ? ( // Show loader if still loading or creatorId not available
             <ActivityIndicator size="large" color={COLORS.logoBlue} />
+
           ) : (
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalScrollContent}>
               {hackathons.filter(h => {
@@ -386,7 +406,7 @@ const HackathonsStackScreen = ({ navigation }) => {
 
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionHeader}>Other Hackathons</Text>
-          {loading || !creatorId ? ( // Show loader if still loading or creatorId not available
+          {loading || !creatorId ? (
             <ActivityIndicator size="large" color={COLORS.logoBlue} />
           ) : (
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalScrollContent}>
