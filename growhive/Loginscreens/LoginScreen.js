@@ -16,6 +16,8 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Ellipse, Circle } from 'react-native-svg';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Entypo } from '@expo/vector-icons';
 import {
   useFonts,
@@ -68,6 +70,7 @@ export default function LoginScreen({ navigation }) {
       const { token, _id: userId, name, email: userEmail, ...profileData } = response.data;
       await SecureStore.setItemAsync('userToken', token);
       await SecureStore.setItemAsync('userId', userId);
+      await AsyncStorage.setItem('userId',userId);
       await SecureStore.setItemAsync('userName', name);
       await SecureStore.setItemAsync('userEmail', userEmail);
       await SecureStore.setItemAsync('userProfile', JSON.stringify(profileData));
