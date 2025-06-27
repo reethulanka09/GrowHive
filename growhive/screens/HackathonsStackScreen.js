@@ -63,8 +63,8 @@ const HackathonsStackScreen = ({ navigation }) => {
         const allItems = await AsyncStorage.multiGet(allKeys);
         console.log('AsyncStorage contents:', allItems);
 
-        // const id = await AsyncStorage.getItem('userId');
-        const id = 12312;
+        const id = await AsyncStorage.getItem('userId');
+        // const id = 12312;
         if (id) {
           setCreatorId(id.toString());
           console.log('HackathonsStackScreen: Fetched creatorId from AsyncStorage:', id);
